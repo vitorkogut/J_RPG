@@ -177,24 +177,36 @@ public class frameUP extends javax.swing.JFrame {
     
     private void aumentaForcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aumentaForcaActionPerformed
         
-        Jogador.setForca( Jogador.getForca() + 1);
-        Jogador.setPontosUP( Jogador.pontosUP - 1);
-        UpdateDados();
+        if(Jogador.pontosUP > 0){
+            Jogador.setForca( Jogador.getForca() + 1);
+            Jogador.setPontosUP( Jogador.pontosUP - 1);
+            UpdateDados();
+        }
         
     }//GEN-LAST:event_aumentaForcaActionPerformed
 
     private void aumentaDefesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aumentaDefesaActionPerformed
-        // TODO add your handling code here:
+         if(Jogador.pontosUP > 0){
+            Jogador.setDefesa( Jogador.getDefesa() + 1);
+            Jogador.setPontosUP( Jogador.pontosUP - 1);
+            UpdateDados();
+        }
     }//GEN-LAST:event_aumentaDefesaActionPerformed
 
     private void aumentaVidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aumentaVidaActionPerformed
-        // TODO add your handling code here:
+         if(Jogador.pontosUP > 0){
+            Jogador.setVida( Jogador.getVida() + 1);
+            Jogador.setPontosUP( Jogador.pontosUP - 1);
+            UpdateDados();
+        }
     }//GEN-LAST:event_aumentaVidaActionPerformed
 
     private void diminuiForcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diminuiForcaActionPerformed
-        Jogador.setForca( Jogador.getForca() - 1);
-        Jogador.setPontosUP( Jogador.pontosUP + 1);
-        UpdateDados();       
+        if(Jogador.getForca() > 0){
+            Jogador.setForca( Jogador.getForca() - 1);
+            Jogador.setPontosUP( Jogador.pontosUP + 1);
+            UpdateDados();
+        }
     }//GEN-LAST:event_diminuiForcaActionPerformed
 
 public void setPtsUP(int pontos){
