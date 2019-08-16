@@ -4,20 +4,25 @@
  * and open the template in the editor.
  */
 package combate;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 import static combate.main.Jogador;
+
 
 /**
  *
  * @author 6462340
  */
-public class frameUP extends javax.swing.JFrame {
+public class frameUP extends javax.swing.JFrame implements ActionListener{
 
     /**
      * Creates new form frameUP
      */
     public frameUP() {
         initComponents();
+        Timer timer = new Timer(200, this);
+        timer.start();
     }
 
     /**
@@ -74,6 +79,11 @@ public class frameUP extends javax.swing.JFrame {
         frameDefesa.setText("jLabel3");
 
         diminuiDefesa.setText("-");
+        diminuiDefesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                diminuiDefesaActionPerformed(evt);
+            }
+        });
 
         aumentaDefesa.setText("+");
         aumentaDefesa.addActionListener(new java.awt.event.ActionListener() {
@@ -88,6 +98,11 @@ public class frameUP extends javax.swing.JFrame {
         frameVida.setText("jLabel3");
 
         diminuiVida.setText("-");
+        diminuiVida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                diminuiVidaActionPerformed(evt);
+            }
+        });
 
         aumentaVida.setText("+");
         aumentaVida.addActionListener(new java.awt.event.ActionListener() {
@@ -209,6 +224,22 @@ public class frameUP extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_diminuiForcaActionPerformed
 
+    private void diminuiVidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diminuiVidaActionPerformed
+        if(Jogador.getVida() > 1 ){
+            Jogador.setVida( Jogador.getVida() - 1);
+            Jogador.setPontosUP( Jogador.pontosUP + 1);
+            UpdateDados();
+        }       
+    }//GEN-LAST:event_diminuiVidaActionPerformed
+
+    private void diminuiDefesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diminuiDefesaActionPerformed
+        if(Jogador.getDefesa() > 0){
+            Jogador.setDefesa( Jogador.getDefesa() - 1);
+            Jogador.setPontosUP( Jogador.pontosUP + 1);
+            UpdateDados();
+        }
+    }//GEN-LAST:event_diminuiDefesaActionPerformed
+
 public void setPtsUP(int pontos){
     labelPontosUP.setText( Integer.toString(pontos));
     
@@ -230,4 +261,10 @@ public void setPtsUP(int pontos){
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel labelPontosUP;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        UpdateDados();
+    }
+
 }

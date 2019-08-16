@@ -67,12 +67,40 @@ public class player {
         this.vida = vida;
     }
     
+        /**
+     * @return the xp
+     */
+    public int getXp() {
+        return xp;
+    }
+
+    /**
+     * @param xp the xp to set
+     */
+    public void setXp(int xp) {
+        this.xp = xp;
+    }
+        /**
+     * @return the lvl
+     */
+    public int getLvl() {
+        return lvl;
+    }
+
+    /**
+     * @param lvl the lvl to set
+     */
+    public void setLvl(int lvl) {
+        this.lvl = lvl;
+    }
     
     int pontosUP = 0;
     private int forca =0;
     private int defesa = 0;
-    private int vida = 0;
-    
-    
+    private int vida = 10;
+    private int xp = 0;
+    private int lvl = 0;
+
+
     
 }

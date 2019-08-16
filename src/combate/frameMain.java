@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package combate;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
 import static combate.main.Jogador;
 
@@ -11,13 +14,15 @@ import static combate.main.Jogador;
  *
  * @author 6462340
  */
-public class frameMain extends javax.swing.JFrame {
+public class frameMain extends javax.swing.JFrame implements ActionListener{
 
     /**
      * Creates new form frameMain
      */
     public frameMain() {
-        initComponents();
+        initComponents(); 
+        Timer timer = new Timer(50 , this);
+        timer.start();    
     }
 
     /**
@@ -29,8 +34,19 @@ public class frameMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jRadioButton1 = new javax.swing.JRadioButton();
         frameUpgrade = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        barraXp = new javax.swing.JProgressBar();
+        jLabel3 = new javax.swing.JLabel();
+        quantXp = new javax.swing.JLabel();
+        lvl = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        barraVida = new javax.swing.JProgressBar();
+        quantVida = new javax.swing.JLabel();
+
+        jRadioButton1.setText("jRadioButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,45 +60,137 @@ public class frameMain extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("JOGO");
 
+        jLabel2.setText("VIDA");
+
+        barraXp.setForeground(new java.awt.Color(0, 0, 102));
+
+        jLabel3.setText("XP");
+
+        quantXp.setText("0/100");
+
+        lvl.setText("0");
+
+        jLabel4.setText("Lvl :");
+
+        barraVida.setForeground(new java.awt.Color(255, 0, 0));
+
+        quantVida.setText("0/50");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(289, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(208, 208, 208)
-                .addComponent(frameUpgrade)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(quantXp))
+                                    .addComponent(barraXp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel4)
+                                .addGap(13, 13, 13)
+                                .addComponent(lvl)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(frameUpgrade))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 279, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(303, 303, 303))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(quantVida)
+                            .addComponent(barraVida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(frameUpgrade)))
-                .addContainerGap(408, Short.MAX_VALUE))
+                        .addComponent(jLabel1)
+                        .addGap(320, 320, 320)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(quantVida))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(barraVida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(quantXp))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(barraXp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(frameUpgrade)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lvl)
+                        .addComponent(jLabel4)))
+                .addGap(12, 12, 12))
         );
+
+        barraXp.getAccessibleContext().setAccessibleParent(barraXp);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void frameUpgradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frameUpgradeActionPerformed
+
         frameUP Upgrade = new frameUP();
         Upgrade.setVisible(true);
         Upgrade.setPtsUP(Jogador.pontosUP);
         Upgrade.UpdateDados();
-        
     }//GEN-LAST:event_frameUpgradeActionPerformed
-
+    
+    
+    @Override
+    public void actionPerformed(ActionEvent e){
+        
+        barraXp.setValue(Jogador.getXp());
+        barraVida.setValue(Jogador.getVida() * 2);
+        
+        
+        
+        Jogador.setXp(Jogador.getXp() + 1);
+        
+        quantXp.setText(Integer.toString(Jogador.getXp()) + "/100");
+        quantVida.setText(Integer.toString(Jogador.getVida()) + "/50");
+        lvl.setText(Integer.toString(Jogador.getLvl()));
+        
+        if(Jogador.getXp() == 100){
+            Jogador.setLvl(Jogador.getLvl() + 1);
+            Jogador.setPontosUP(Jogador.getPontosUP() + 1);
+            Jogador.setXp(0);
+        }
+        
+        repaint();
+    }
+    
+    
     
 
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JProgressBar barraVida;
+    private javax.swing.JProgressBar barraXp;
     private javax.swing.JButton frameUpgrade;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JLabel lvl;
+    private javax.swing.JLabel quantVida;
+    private javax.swing.JLabel quantXp;
     // End of variables declaration//GEN-END:variables
 }
+
