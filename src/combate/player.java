@@ -10,97 +10,78 @@ package combate;
  * @author 6462340
  */
 public class player {
-
-    /**
-     * @return the pontosUP
-     */
-    public int getPontosUP() {
-        return pontosUP;
-    }
-
-    /**
-     * @param pontosUP the pontosUP to set
-     */
-    public void setPontosUP(int pontosUP) {
-        this.pontosUP = pontosUP;
-    }
-
-    /**
-     * @return the forca
-     */
-    public int getForca() {
-        return forca;
-    }
-
-    /**
-     * @param forca the forca to set
-     */
-    public void setForca(int forca) {
-        this.forca = forca;
-    }
-
-    /**
-     * @return the defesa
-     */
-    public int getDefesa() {
-        return defesa;
-    }
-
-    /**
-     * @param defesa the defesa to set
-     */
-    public void setDefesa(int defesa) {
-        this.defesa = defesa;
-    }
-
-    /**
-     * @return the vida
-     */
-    public int getVida() {
-        return vida;
-    }
-
-    /**
-     * @param vida the vida to set
-     */
-    public void setVida(int vida) {
-        this.vida = vida;
-    }
-    
-        /**
-     * @return the xp
-     */
-    public int getXp() {
-        return xp;
-    }
-
-    /**
-     * @param xp the xp to set
-     */
-    public void setXp(int xp) {
-        this.xp = xp;
-    }
-        /**
-     * @return the lvl
-     */
-    public int getLvl() {
-        return lvl;
-    }
-
-    /**
-     * @param lvl the lvl to set
-     */
-    public void setLvl(int lvl) {
-        this.lvl = lvl;
-    }
     
     int pontosUP = 0;
+    private int classe = 0; // CLASSE 1 GUERREIRO / CLASSE 2 MAGO / CLASSE 3 ARQUEIRO
     private int forca =0;
     private int defesa = 0;
     private int vida = 10;
     private int xp = 0;
     private int lvl = 0;
+    private int gold = 100;
 
+    public int getPontosUP() {
+        return pontosUP;
+    }
 
+    public void setPontosUP(int pontosUP) {
+        this.pontosUP = pontosUP;
+    }
+
+    public int getForca() {
+        return forca;
+    }
+
+    public void setForca(int forca) {
+        this.forca = forca;
+    }
+
+    public int getDefesa() {
+        return defesa;
+    }
+
+    public void setDefesa(int defesa) {
+        this.defesa = defesa;
+    }
+
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
     
+    public int getXp() {
+        return xp;
+    }
+
+    public void setXp(int xp) {
+        this.xp = xp;
+    }
+ 
+    public int getLvl() {
+        return lvl;
+    }
+
+    public void setLvl(int lvl) {
+        this.lvl = lvl;
+    }
+    
+    public int getClasse() {
+        return classe;
+    }
+
+    public void setClasse(int classe) {
+        this.classe = classe;
+    }
+    
+    public int getGold() {
+        return gold;
+    }
+
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
+   
 }

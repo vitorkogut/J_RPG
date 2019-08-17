@@ -11,7 +11,8 @@ package combate;
  */
 
 public class main {
-public static player Jogador = new player(); // SETA JOGADOR COMO GLOBAL
+public static player Jogador = new player(); // SETA JOGADOR COMO UM GLOBAL
+public static Textos Textos = new Textos(); // SETA TEXTOS COMO UM GLOBAL
    
     public static void main(String[] args){
   
