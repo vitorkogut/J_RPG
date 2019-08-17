@@ -203,6 +203,7 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
     private void frameUpgradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frameUpgradeActionPerformed
 
         frameUP Upgrade = new frameUP();
+        Upgrade.setLocationRelativeTo(null);
         Upgrade.setVisible(true);
         Upgrade.setPtsUP(Jogador.pontosUP);
         Upgrade.UpdateDados();
@@ -215,6 +216,10 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
                 parteAtual = 6;
             break;
             
+            case 24: case 29:
+                parteAtual = 30;
+            break;
+                
             default:
                 parteAtual = parteAtual + 1;
             break;
@@ -227,6 +232,39 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
             Jogador.setClasse(1);
             parteAtual = 3;
         }
+        
+        if(parteAtual == 8){
+            parteAtual = 9;
+        }
+        
+        if(parteAtual == 10){
+            parteAtual = 11;
+        }
+        
+        if(parteAtual == 12){
+            parteAtual = 13;
+        }
+        
+        if(parteAtual == 15){
+            Jogador.setGold(Jogador.getGold() - 10);
+            parteAtual = 16;// 16 eh um combate 
+        }
+        
+        
+        if(parteAtual == 19){
+            parteAtual = 20;
+        }
+        
+        if(parteAtual == 22){
+            parteAtual = 23;
+        }
+        
+        if(parteAtual == 27){
+            parteAtual = 28;
+        }
+        
+        
+        
     }//GEN-LAST:event_op1ActionPerformed
 
     private void op2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_op2ActionPerformed
@@ -234,12 +272,66 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
             Jogador.setClasse(2);
             parteAtual = 4;
         }
+        if(parteAtual == 8){
+            parteAtual = 9;
+        }
+        
+        if(parteAtual == 10){
+            parteAtual = 11;
+        }    
+
+        if(parteAtual == 12){
+            parteAtual = 13;
+        }
+        
+        if(parteAtual == 15){
+            parteAtual = 16;// 16 eh um combate 
+        }
+        
+        if(parteAtual == 19){
+            parteAtual = 25;
+        }
+        
+        if(parteAtual == 22){
+            parteAtual = 23;
+        }
+        
+        if(parteAtual == 27){
+            parteAtual = 28;
+        }
     }//GEN-LAST:event_op2ActionPerformed
 
     private void op3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_op3ActionPerformed
         if(parteAtual == 2){
             Jogador.setClasse(3);
             parteAtual = 5;
+        }
+        if(parteAtual == 8){
+            parteAtual = 9;
+        }
+        
+        if(parteAtual == 10){
+            parteAtual = 11;
+        }
+        
+        if(parteAtual == 12){
+            parteAtual = 13; 
+        }
+        
+        if(parteAtual == 15){
+            parteAtual = 16;// 16 eh um combate 
+        }
+
+        if(parteAtual == 19){
+            parteAtual = 25;
+        }
+        
+        if(parteAtual == 22){
+            parteAtual = 23;
+        }
+        
+        if(parteAtual == 27){
+            parteAtual = 28;
         }
     }//GEN-LAST:event_op3ActionPerformed
     
@@ -273,7 +365,7 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
         }
         
         //AKI OS BOTÕES SOMEM E APARECEM DEPENDENDO DA FASE
-        if(parteAtual == 2){
+        if(parteAtual == 2 || parteAtual == 8 || parteAtual == 10 || parteAtual == 12 || parteAtual == 15 || parteAtual == 19 || parteAtual == 22 || parteAtual == 27){
             botãoProximo.setVisible(false);
             op1.setVisible(true);
             op2.setVisible(true);
