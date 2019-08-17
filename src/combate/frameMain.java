@@ -17,7 +17,6 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
    int parteAtual = 0; // SERVE PARA SABER QUE PARTE ESTÁ DA AVENTURA E PARA DETERMINAR A PROXIMA
    
     public frameMain() {
-        setBounds(600, 250, WIDTH, WIDTH);
         initComponents(); 
         Timer timer = new Timer(50 , this);
         timer.start();
@@ -46,6 +45,7 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
         op3 = new javax.swing.JButton();
         classe = new javax.swing.JLabel();
         gold = new javax.swing.JLabel();
+        inventário = new javax.swing.JButton();
 
         jRadioButton1.setText("jRadioButton1");
 
@@ -113,6 +113,13 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
 
         gold.setText("Gold:");
 
+        inventário.setText("INVENTÁRIO");
+        inventário.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inventárioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -121,29 +128,7 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(quantXp))
-                            .addComponent(barraXp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel4)
-                        .addGap(13, 13, 13)
-                        .addComponent(lvl)
-                        .addGap(39, 39, 39)
-                        .addComponent(classe)
-                        .addGap(83, 83, 83)
-                        .addComponent(gold)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
-                        .addComponent(frameUpgrade))
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(quantVida)
-                            .addComponent(barraVida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(op1)
                         .addGap(18, 18, 18)
@@ -151,7 +136,32 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
                         .addGap(18, 18, 18)
                         .addComponent(op3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botãoProximo)))
+                        .addComponent(botãoProximo))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(quantXp))
+                                    .addComponent(barraXp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel4)
+                                .addGap(13, 13, 13)
+                                .addComponent(lvl)
+                                .addGap(39, 39, 39)
+                                .addComponent(classe)
+                                .addGap(83, 83, 83)
+                                .addComponent(gold))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(quantVida)
+                                .addComponent(barraVida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(frameUpgrade, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(inventário, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(10, 10, 10)))
                 .addContainerGap())
             .addComponent(jScrollPane1)
         );
@@ -186,7 +196,10 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
                             .addComponent(quantXp))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(barraXp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(frameUpgrade, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(inventário, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(frameUpgrade))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lvl)
                         .addComponent(jLabel4)
@@ -198,6 +211,7 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
         barraXp.getAccessibleContext().setAccessibleParent(barraXp);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void frameUpgradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frameUpgradeActionPerformed
@@ -334,6 +348,11 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
             parteAtual = 28;
         }
     }//GEN-LAST:event_op3ActionPerformed
+
+    private void inventárioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventárioActionPerformed
+        frameInventário inventário = new frameInventário();
+        inventário.setVisible(true);
+    }//GEN-LAST:event_inventárioActionPerformed
     
     
     @Override
@@ -393,6 +412,7 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JLabel classe;
     private javax.swing.JButton frameUpgrade;
     private javax.swing.JLabel gold;
+    private javax.swing.JButton inventário;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
