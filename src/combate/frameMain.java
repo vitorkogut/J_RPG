@@ -29,6 +29,7 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
         initComponents(); 
         Timer timer = new Timer(50 , this);
         timer.start();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -56,7 +57,7 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
         op3 = new javax.swing.JButton();
         classe = new javax.swing.JLabel();
         gold = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        invJogador = new javax.swing.JButton();
 
         jRadioButton1.setText("jRadioButton1");
 
@@ -134,8 +135,12 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
 
         gold.setText("Gold:");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/combate/Images/back.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
+        invJogador.setText("INVENTÁRIO");
+        invJogador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                invJogadorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -148,40 +153,16 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
                         .addComponent(op2))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
                         .addComponent(barraVida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(199, 199, 199)
-                        .addComponent(lvl))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(365, 365, 365)
-                        .addComponent(gold))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(559, 559, 559)
                         .addComponent(botãoProximo))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addComponent(quantXp))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(244, 244, 244)
-                        .addComponent(classe))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(553, 553, 553)
-                        .addComponent(frameUpgrade))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(200, 200, 200)
                         .addComponent(op3))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(barraXp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -189,29 +170,48 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
                         .addGap(10, 10, 10)
                         .addComponent(op1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addComponent(jLabel4))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(134, 134, 134)
+                        .addContainerGap()
+                        .addComponent(jLabel2)
+                        .addGap(98, 98, 98)
                         .addComponent(quantVida)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(199, 199, 199)
+                                .addComponent(lvl))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(365, 365, 365)
+                                .addComponent(gold))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(244, 244, 244)
+                                .addComponent(classe))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(barraXp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(166, 166, 166)
+                                .addComponent(jLabel4)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(frameUpgrade))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(128, 128, 128)
+                                .addComponent(quantXp))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel3)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 387, Short.MAX_VALUE)
+                        .addComponent(invJogador)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(293, 293, 293)
-                        .addComponent(op2)
-                        .addGap(59, 59, 59)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(400, 400, 400)
-                        .addComponent(barraVida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(187, 187, 187)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(453, 453, 453)
                         .addComponent(lvl))
@@ -219,29 +219,14 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
                         .addGap(453, 453, 453)
                         .addComponent(gold))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(285, 285, 285)
-                        .addComponent(botãoProximo))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(433, 433, 433)
-                        .addComponent(quantXp))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(453, 453, 453)
                         .addComponent(classe))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(433, 433, 433)
                         .addComponent(jLabel3))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(444, 444, 444)
-                        .addComponent(frameUpgrade))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(293, 293, 293)
                         .addComponent(op3))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(453, 453, 453)
-                        .addComponent(barraXp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(293, 293, 293)
                         .addComponent(op1))
@@ -250,9 +235,37 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
                         .addComponent(jLabel4))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(375, 375, 375)
-                        .addComponent(quantVida)))
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(293, 293, 293)
+                                .addComponent(op2))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(187, 187, 187)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(quantVida)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(barraVida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(quantXp))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(64, 64, 64)
+                                .addComponent(barraXp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(285, 285, 285)
+                        .addComponent(botãoProximo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(invJogador)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(frameUpgrade)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
         barraXp.getAccessibleContext().setAccessibleParent(barraXp);
@@ -261,11 +274,13 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -402,6 +417,11 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
         Upgrade.setPtsUP(Jogador.pontosUP);
         Upgrade.UpdateDados();
     }//GEN-LAST:event_frameUpgradeActionPerformed
+
+    private void invJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invJogadorActionPerformed
+        frameInventário inventário = new frameInventário();
+        inventário.setVisible(true);
+    }//GEN-LAST:event_invJogadorActionPerformed
     
     
     @Override
@@ -468,7 +488,7 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JLabel classe;
     private javax.swing.JButton frameUpgrade;
     private javax.swing.JLabel gold;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton invJogador;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
