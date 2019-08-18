@@ -20,12 +20,12 @@ import javax.swing.JLabel;
 public class frameMain extends javax.swing.JFrame implements ActionListener{
 
    int parteAtual = 0; // SERVE PARA SABER QUE PARTE ESTÁ DA AVENTURA E PARA DETERMINAR A PROXIMA
+   private int controlCombate = 0; // VARIAVEL DE CONTROLE
    
    private ImageIcon imagem;
 
    
     public frameMain() {
-        setBounds(600, 250, WIDTH, WIDTH);
         initComponents(); 
         Timer timer = new Timer(50 , this);
         timer.start();
@@ -284,6 +284,7 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void op3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_op3ActionPerformed
@@ -402,7 +403,19 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
             case 24: case 29:
             parteAtual = 30;
             break;
-
+            
+            case 16:
+            if(controlCombate == 0){
+                Combate combate = new Combate();
+                combate.setVisible(true);
+                controlCombate = 1;
+                break;
+            } else if(controlCombate == 1) {
+                break;
+            } else {    
+                parteAtual++;
+                break;
+            }
             default:
             parteAtual = parteAtual + 1;
             break;
@@ -446,10 +459,10 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
             classe.setText("Classe: Arqueiro");   
         }
         
-        if(Jogador.getXp() == 100){
+        if(Jogador.getXp() >= 100){
             Jogador.setLvl(Jogador.getLvl() + 1);
             Jogador.setPontosUP(Jogador.getPontosUP() + 1);
-            Jogador.setXp(0);
+            Jogador.setXp(Jogador.getXp() - 100);
         }
         
         //AKI OS BOTÕES SOMEM E APARECEM DEPENDENDO DA FASE
@@ -472,6 +485,7 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
             imagem = new ImageIcon(getClass().getResource("Images\\teste2.jpg"));
             jLabel5.setIcon(imagem);
         }
+        
         repaint();
     }
     
@@ -505,5 +519,10 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JLabel quantVida;
     private javax.swing.JLabel quantXp;
     // End of variables declaration//GEN-END:variables
+
+
+    public void setControlCombate(int controlCombate) {
+        this.controlCombate = controlCombate;
+    }
 }
 

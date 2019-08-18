@@ -13,16 +13,15 @@ package combate;
 public class main {
 public static player Jogador = new player(); // SETA JOGADOR COMO UM GLOBAL
 public static Textos Textos = new Textos(); // SETA TEXTOS COMO UM GLOBAL
+public static frameMain MainFrame = new frameMain(); // SETA FRAMEMAIN COMO GLOBAL
    
     public static void main(String[] args){
   
-    inimigo Inimigo = new inimigo();
     Jogador.setPontosUP(10);
     
-    frameMain MainFrame = new frameMain();
+    
     MainFrame.setVisible(true);
-        
-        
+    
     }
  
 }
