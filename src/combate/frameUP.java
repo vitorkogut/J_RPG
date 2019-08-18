@@ -181,7 +181,6 @@ public class frameUP extends javax.swing.JFrame implements ActionListener{
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     public void UpdateDados(){
