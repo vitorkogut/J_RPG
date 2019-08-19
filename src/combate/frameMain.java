@@ -18,9 +18,11 @@ import javax.swing.JLabel;
 
 
 public class frameMain extends javax.swing.JFrame implements ActionListener{
-
+    
    int parteAtual = 0; // SERVE PARA SABER QUE PARTE ESTÁ DA AVENTURA E PARA DETERMINAR A PROXIMA
-   private int controlCombate = 0; // VARIAVEL DE CONTROLE
+   int controlCombate = 0; // VARIAVEL DE CONTROLE
+   private int preco = 50;
+   
    
    private ImageIcon imagem;
 
@@ -58,6 +60,8 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
         classe = new javax.swing.JLabel();
         gold = new javax.swing.JLabel();
         invJogador = new javax.swing.JButton();
+        alertaInv = new javax.swing.JLabel();
+        alertaUp = new javax.swing.JLabel();
 
         jRadioButton1.setText("jRadioButton1");
 
@@ -142,6 +146,14 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
             }
         });
 
+        alertaInv.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        alertaInv.setForeground(new java.awt.Color(0, 0, 153));
+        alertaInv.setText("!!!");
+
+        alertaUp.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        alertaUp.setForeground(new java.awt.Color(0, 0, 153));
+        alertaUp.setText("!!!");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -180,6 +192,12 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(128, 128, 128)
+                                .addComponent(quantXp))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel3))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(199, 199, 199)
                                 .addComponent(lvl))
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -195,16 +213,13 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
                                 .addGap(166, 166, 166)
                                 .addComponent(jLabel4)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(alertaUp)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(frameUpgrade))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(128, 128, 128)
-                                .addComponent(quantXp))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel3)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 387, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(alertaInv)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(invJogador)))
                 .addContainerGap())
         );
@@ -262,9 +277,13 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
                         .addGap(285, 285, 285)
                         .addComponent(botãoProximo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(invJogador)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(invJogador)
+                            .addComponent(alertaInv))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(frameUpgrade)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(frameUpgrade)
+                            .addComponent(alertaUp))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -449,6 +468,18 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
         lvl.setText(Integer.toString(Jogador.getLvl()));
         gold.setText("Gold: "+ Jogador.getGold());
         
+        if(Jogador.getPontosUP() > 0){
+            alertaUp.setText("!!!");
+        } else {
+            alertaUp.setText("");
+        }
+                
+        if(Jogador.getGold() >= getPreco()){
+            alertaInv.setText("!!!");
+        } else {
+            alertaInv.setText("");
+        }
+        
         if(Jogador.getClasse() == 1){
             classe.setText("Classe: Guerreiro");
         }
@@ -496,6 +527,8 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel alertaInv;
+    private javax.swing.JLabel alertaUp;
     private javax.swing.JProgressBar barraVida;
     private javax.swing.JProgressBar barraXp;
     private javax.swing.JButton botãoProximo;
@@ -523,6 +556,14 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
 
     public void setControlCombate(int controlCombate) {
         this.controlCombate = controlCombate;
+    }
+
+    public int getPreco() {
+        return preco;
+    }
+
+    public void setPreco(int preco) {
+        this.preco = preco;
     }
 }
 

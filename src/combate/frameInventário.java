@@ -9,13 +9,14 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 import static combate.main.Jogador;
+import static combate.main.MainFrame;
 
 /**
  *
  * @author Gustavo
  */
 public class frameInventário extends javax.swing.JFrame implements ActionListener {
-    int preço = 50;
+    
     /**
      * Creates new form frameInventário
      */
@@ -169,11 +170,11 @@ public class frameInventário extends javax.swing.JFrame implements ActionListen
     }// </editor-fold>//GEN-END:initComponents
 
     private void reforçoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reforçoActionPerformed
-        if(Jogador.getGold() > preço){
-            Jogador.setGold(Jogador.getGold() - 50);
+        if(Jogador.getGold() >= MainFrame.getPreco()){
+            Jogador.setGold(Jogador.getGold() - MainFrame.getPreco());
             Jogador.setDefesa(Jogador.getDefesa() + 25);
             Jogador.setForca(Jogador.getForca() + 25);
-            preço = preço + 25;
+            MainFrame.setPreco(MainFrame.getPreco() + 25);
             // AKI TEM Q VER OQ FAZER
         }
     }//GEN-LAST:event_reforçoActionPerformed
@@ -236,6 +237,6 @@ public class frameInventário extends javax.swing.JFrame implements ActionListen
         defesaJogador.setText("Defesa : " + Jogador.getDefesa());
         vidaJogador.setText("Vida : " + Jogador.getVida());
         goldJogador.setText("Gold : " + Jogador.getGold());
-        preçoReforço.setText("Reforçar equipamento : " + preço );
+        preçoReforço.setText("Reforçar equipamento : " + MainFrame.getPreco() );
     }
 }

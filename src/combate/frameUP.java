@@ -194,7 +194,7 @@ public class frameUP extends javax.swing.JFrame implements ActionListener{
         
         if(Jogador.pontosUP > 0){
             Jogador.setForca( Jogador.getForca() + 1);
-            Jogador.setPontosUP( Jogador.pontosUP - 1);
+            Jogador.setPontosUP( Jogador.getPontosUP() - 1);
             UpdateDados();
         }
         
@@ -203,15 +203,15 @@ public class frameUP extends javax.swing.JFrame implements ActionListener{
     private void aumentaDefesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aumentaDefesaActionPerformed
          if(Jogador.pontosUP > 0){
             Jogador.setDefesa( Jogador.getDefesa() + 1);
-            Jogador.setPontosUP( Jogador.pontosUP - 1);
+            Jogador.setPontosUP( Jogador.getPontosUP() - 1);
             UpdateDados();
         }
     }//GEN-LAST:event_aumentaDefesaActionPerformed
 
     private void aumentaVidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aumentaVidaActionPerformed
-         if(Jogador.pontosUP > 0){
+         if(Jogador.pontosUP > 0 && Jogador.getVida() < 50){
             Jogador.setVida( Jogador.getVida() + 1);
-            Jogador.setPontosUP( Jogador.pontosUP - 1);
+            Jogador.setPontosUP(Jogador.getPontosUP() - 1);
             UpdateDados();
         }
     }//GEN-LAST:event_aumentaVidaActionPerformed
@@ -219,7 +219,7 @@ public class frameUP extends javax.swing.JFrame implements ActionListener{
     private void diminuiForcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diminuiForcaActionPerformed
         if(Jogador.getForca() > 0){
             Jogador.setForca( Jogador.getForca() - 1);
-            Jogador.setPontosUP( Jogador.pontosUP + 1);
+            Jogador.setPontosUP(Jogador.getPontosUP() + 1);
             UpdateDados();
         }
     }//GEN-LAST:event_diminuiForcaActionPerformed
@@ -227,7 +227,7 @@ public class frameUP extends javax.swing.JFrame implements ActionListener{
     private void diminuiVidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diminuiVidaActionPerformed
         if(Jogador.getVida() > 1 ){
             Jogador.setVida( Jogador.getVida() - 1);
-            Jogador.setPontosUP( Jogador.pontosUP + 1);
+            Jogador.setPontosUP( Jogador.getPontosUP() + 1);
             UpdateDados();
         }       
     }//GEN-LAST:event_diminuiVidaActionPerformed
@@ -235,7 +235,7 @@ public class frameUP extends javax.swing.JFrame implements ActionListener{
     private void diminuiDefesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diminuiDefesaActionPerformed
         if(Jogador.getDefesa() > 0){
             Jogador.setDefesa( Jogador.getDefesa() - 1);
-            Jogador.setPontosUP( Jogador.pontosUP + 1);
+            Jogador.setPontosUP(Jogador.getPontosUP() + 1);
             UpdateDados();
         }
     }//GEN-LAST:event_diminuiDefesaActionPerformed
