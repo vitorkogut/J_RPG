@@ -139,6 +139,7 @@ public class Combate extends javax.swing.JFrame implements ActionListener {
         
         if(perdaTurno == 1){
             atqInimigo();
+            perdaTurno = 0;
         } else if(d20 > 5 && d20 < 16){
             inimigo.setVida(inimigo.getVida() - 10);
             if(inimigo.getVida() <= 0){
@@ -146,12 +147,14 @@ public class Combate extends javax.swing.JFrame implements ActionListener {
                 MainFrame.setControlCombate(2);
                 timer.stop();
                 fechar.setVisible(true);
-                atq.setVisible(false);
+                atq.setEnabled(false);
+                def.setEnabled(false);
+                pot.setEnabled(false);
                 textoCombate.setText(TextosCombate.getTextoCombate(6));
                 barraVidaInimigo.setValue(inimigo.getVida());
-                vidaInimigo.setText("VIDA INIMIGO : " + inimigo.getVida());
+                vidaInimigo.setText("VIDA INIMIGO : 0");
             }
-            if(Jogador.getClasse() == 1){
+            else if(Jogador.getClasse() == 1){
                 textoCombate.setText(TextosCombate.getTextoCombate(0));
             }
             else if(Jogador.getClasse() == 2){
@@ -169,12 +172,15 @@ public class Combate extends javax.swing.JFrame implements ActionListener {
                 MainFrame.setControlCombate(2);
                 timer.stop();
                 fechar.setVisible(true);
-                atq.setVisible(false);
+                atq.setEnabled(false);
+                def.setEnabled(false);
+                pot.setEnabled(false);
                 textoCombate.setText(TextosCombate.getTextoCombate(6));
                 barraVidaInimigo.setValue(inimigo.getVida());
-                vidaInimigo.setText("VIDA INIMIGO : " + inimigo.getVida());
-            }
+                vidaInimigo.setText("VIDA INIMIGO : 0");
+            } else {
             textoCombate.setText(TextosCombate.getTextoCombate(3));
+            }
         }
         
         else if(d20 <= 5 && d20 > 0){
