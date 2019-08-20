@@ -48,6 +48,14 @@ public class frameUP extends javax.swing.JFrame implements ActionListener{
         frameVida = new javax.swing.JLabel();
         diminuiVida = new javax.swing.JButton();
         aumentaVida = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        labelInt = new javax.swing.JLabel();
+        diminuiInt = new javax.swing.JButton();
+        aumentaInt = new javax.swing.JButton();
+        labelDestreza = new javax.swing.JLabel();
+        diminuiDestreza = new javax.swing.JButton();
+        aumentaDestreza = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("PONTOS:");
@@ -93,7 +101,7 @@ public class frameUP extends javax.swing.JFrame implements ActionListener{
         });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("VIDA:");
+        jLabel4.setText("VIDA MAXIMA:");
 
         frameVida.setText("jLabel3");
 
@@ -111,6 +119,44 @@ public class frameUP extends javax.swing.JFrame implements ActionListener{
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setText("INTELIGÊNCIA:");
+
+        labelInt.setText("jLabel3");
+
+        diminuiInt.setText("-");
+        diminuiInt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                diminuiIntActionPerformed(evt);
+            }
+        });
+
+        aumentaInt.setText("+");
+        aumentaInt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aumentaIntActionPerformed(evt);
+            }
+        });
+
+        labelDestreza.setText("jLabel3");
+
+        diminuiDestreza.setText("-");
+        diminuiDestreza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                diminuiDestrezaActionPerformed(evt);
+            }
+        });
+
+        aumentaDestreza.setText("+");
+        aumentaDestreza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aumentaDestrezaActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setText("Destreza:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -119,9 +165,7 @@ public class frameUP extends javax.swing.JFrame implements ActionListener{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(241, 241, 241)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labelPontosUP))
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -150,7 +194,26 @@ public class frameUP extends javax.swing.JFrame implements ActionListener{
                                     .addComponent(diminuiForca)
                                     .addGap(4, 4, 4)
                                     .addComponent(aumentaForca))))))
-                .addContainerGap(311, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelInt)
+                        .addGap(18, 18, 18)
+                        .addComponent(diminuiInt)
+                        .addGap(4, 4, 4)
+                        .addComponent(aumentaInt))
+                    .addComponent(labelPontosUP)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelDestreza)
+                        .addGap(18, 18, 18)
+                        .addComponent(diminuiDestreza)
+                        .addGap(4, 4, 4)
+                        .addComponent(aumentaDestreza)))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,24 +223,36 @@ public class frameUP extends javax.swing.JFrame implements ActionListener{
                     .addComponent(jLabel1)
                     .addComponent(labelPontosUP))
                 .addGap(79, 79, 79)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(frameForca)
-                    .addComponent(diminuiForca)
-                    .addComponent(aumentaForca))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addComponent(labelInt)
+                        .addComponent(diminuiInt)
+                        .addComponent(aumentaInt))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(frameForca)
+                        .addComponent(diminuiForca)
+                        .addComponent(aumentaForca)))
                 .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(frameDefesa)
-                    .addComponent(diminuiDefesa)
-                    .addComponent(aumentaDefesa))
-                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7)
+                        .addComponent(labelDestreza)
+                        .addComponent(diminuiDestreza)
+                        .addComponent(aumentaDestreza))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(frameDefesa)
+                        .addComponent(diminuiDefesa)
+                        .addComponent(aumentaDefesa)))
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(frameVida)
                     .addComponent(diminuiVida)
                     .addComponent(aumentaVida))
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addContainerGap(236, Short.MAX_VALUE))
         );
 
         pack();
@@ -185,9 +260,11 @@ public class frameUP extends javax.swing.JFrame implements ActionListener{
 
     public void UpdateDados(){
         frameForca.setText(Integer.toString(Jogador.getForca()));
-        frameVida.setText(Integer.toString(Jogador.getVida()));
+        frameVida.setText(Integer.toString(Jogador.getMaxVida()));
         frameDefesa.setText( Integer.toString(Jogador.getDefesa()) );
-        labelPontosUP.setText( Integer.toString(Jogador.getPontosUP()) );
+        labelInt.setText(Integer.toString(Jogador.getInteligencia()));
+        labelDestreza.setText(Integer.toString(Jogador.getDestreza()));
+        labelPontosUP.setText( Integer.toString(Jogador.getPontosUP()));
     }
     
     private void aumentaForcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aumentaForcaActionPerformed
@@ -209,8 +286,8 @@ public class frameUP extends javax.swing.JFrame implements ActionListener{
     }//GEN-LAST:event_aumentaDefesaActionPerformed
 
     private void aumentaVidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aumentaVidaActionPerformed
-         if(Jogador.pontosUP > 0 && Jogador.getVida() < 50){
-            Jogador.setVida( Jogador.getVida() + 1);
+         if(Jogador.pontosUP > 0 && Jogador.getMaxVida()< 50){
+            Jogador.setMaxVida( Jogador.getMaxVida() + 1);
             Jogador.setPontosUP(Jogador.getPontosUP() - 1);
             UpdateDados();
         }
@@ -225,8 +302,8 @@ public class frameUP extends javax.swing.JFrame implements ActionListener{
     }//GEN-LAST:event_diminuiForcaActionPerformed
 
     private void diminuiVidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diminuiVidaActionPerformed
-        if(Jogador.getVida() > 1 ){
-            Jogador.setVida( Jogador.getVida() - 1);
+        if(Jogador.getMaxVida() > 1 ){
+            Jogador.setMaxVida( Jogador.getMaxVida() - 1);
             Jogador.setPontosUP( Jogador.getPontosUP() + 1);
             UpdateDados();
         }       
@@ -240,6 +317,38 @@ public class frameUP extends javax.swing.JFrame implements ActionListener{
         }
     }//GEN-LAST:event_diminuiDefesaActionPerformed
 
+    private void diminuiIntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diminuiIntActionPerformed
+        if(Jogador.getInteligencia()> 0){
+            Jogador.setInteligencia(Jogador.getInteligencia()- 1);
+            Jogador.setPontosUP(Jogador.getPontosUP() + 1);
+            UpdateDados();
+        }
+    }//GEN-LAST:event_diminuiIntActionPerformed
+
+    private void aumentaIntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aumentaIntActionPerformed
+        if(Jogador.pontosUP > 0 ){
+            Jogador.setInteligencia(Jogador.getInteligencia()+ 1);
+            Jogador.setPontosUP(Jogador.getPontosUP() - 1);
+            UpdateDados();
+        }
+    }//GEN-LAST:event_aumentaIntActionPerformed
+
+    private void diminuiDestrezaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diminuiDestrezaActionPerformed
+        if(Jogador.getDestreza()> 0){
+            Jogador.setDestreza(Jogador.getDestreza()- 1);
+            Jogador.setPontosUP(Jogador.getPontosUP() + 1);
+            UpdateDados();
+        }
+    }//GEN-LAST:event_diminuiDestrezaActionPerformed
+
+    private void aumentaDestrezaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aumentaDestrezaActionPerformed
+        if(Jogador.pontosUP > 0 ){
+            Jogador.setDestreza(Jogador.getDestreza()+ 1);
+            Jogador.setPontosUP(Jogador.getPontosUP() - 1);
+            UpdateDados();
+        }
+    }//GEN-LAST:event_aumentaDestrezaActionPerformed
+
 public void setPtsUP(int pontos){
     labelPontosUP.setText( Integer.toString(pontos));
     
@@ -247,10 +356,14 @@ public void setPtsUP(int pontos){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aumentaDefesa;
+    private javax.swing.JButton aumentaDestreza;
     private javax.swing.JButton aumentaForca;
+    private javax.swing.JButton aumentaInt;
     private javax.swing.JButton aumentaVida;
     private javax.swing.JButton diminuiDefesa;
+    private javax.swing.JButton diminuiDestreza;
     private javax.swing.JButton diminuiForca;
+    private javax.swing.JButton diminuiInt;
     private javax.swing.JButton diminuiVida;
     private javax.swing.JLabel frameDefesa;
     private javax.swing.JLabel frameForca;
@@ -259,6 +372,10 @@ public void setPtsUP(int pontos){
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel labelDestreza;
+    private javax.swing.JLabel labelInt;
     private javax.swing.JLabel labelPontosUP;
     // End of variables declaration//GEN-END:variables
 

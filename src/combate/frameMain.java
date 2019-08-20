@@ -21,7 +21,7 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
     
    int parteAtual = 0; // SERVE PARA SABER QUE PARTE ESTÁ DA AVENTURA E PARA DETERMINAR A PROXIMA
    int controlCombate = 0; // VARIAVEL DE CONTROLE
-   private int preco = 50;
+   private int preco = 50; // PREÇO DA MALHORIA DE EQUIPAMENTO
    
    
    private ImageIcon imagem;
@@ -309,6 +309,8 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
     private void op3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_op3ActionPerformed
         if(parteAtual == 2){
             Jogador.setClasse(3);
+            Jogador.setDestreza(5);
+            Jogador.setXp(100);
             parteAtual = 5;
         }
         if(parteAtual == 8){
@@ -343,6 +345,8 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
     private void op2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_op2ActionPerformed
         if(parteAtual == 2){
             Jogador.setClasse(2);
+            Jogador.setInteligencia(5);
+            Jogador.setXp(100);
             parteAtual = 4;
         }
         if(parteAtual == 8){
@@ -378,6 +382,8 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
 
         if(parteAtual == 2){
             Jogador.setClasse(1);
+            Jogador.setForca(5);
+            Jogador.setXp(100);
             parteAtual = 3;
         }
 
@@ -464,7 +470,7 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
         barraXp.setValue(Jogador.getXp());
         barraVida.setValue(Jogador.getVida() * 2);
         quantXp.setText(Integer.toString(Jogador.getXp()) + "/100");
-        quantVida.setText(Integer.toString(Jogador.getVida()) + "/50");
+        quantVida.setText(Integer.toString(Jogador.getVida()) + "/" + Jogador.getMaxVida());
         lvl.setText(Integer.toString(Jogador.getLvl()));
         gold.setText("Gold: "+ Jogador.getGold());
         
@@ -516,7 +522,6 @@ public class frameMain extends javax.swing.JFrame implements ActionListener{
             imagem = new ImageIcon(getClass().getResource("Images\\teste2.jpg"));
             jLabel5.setIcon(imagem);
         }
-        
         repaint();
     }
     

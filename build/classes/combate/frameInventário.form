@@ -39,67 +39,86 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-              <Component id="jLabel6" min="-2" pref="102" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel3" min="-2" pref="102" max="-2" attributes="0"/>
+                      <Component id="jLabel6" min="-2" pref="102" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jLabel4" min="-2" pref="102" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jLabel2" min="-2" pref="102" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="reforço" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="preçoReforço" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="vidaJogador" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="atqJogador" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="defesaJogador" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel3" min="-2" pref="102" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jLabel4" min="-2" pref="102" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jLabel2" min="-2" pref="102" max="-2" attributes="0"/>
+                              <EmptySpace min="112" pref="112" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" pref="186" max="-2" attributes="0"/>
+                      <EmptySpace pref="67" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="reforço" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="preçoReforço" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="destrezaJogador" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="forcaJogador" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="intJogador" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="defasaJogador" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="vidaJogador" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="qntPot" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel1" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
-                  <Component id="goldJogador" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <Component id="goldJogador" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="513" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jLabel2" min="-2" pref="76" max="-2" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="atqJogador" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="defesaJogador" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" pref="76" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel3" min="-2" pref="152" max="-2" attributes="0"/>
+                          <Component id="jLabel6" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
+                          <Component id="jLabel4" alignment="0" min="-2" pref="59" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                      <Component id="forcaJogador" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="intJogador" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="destrezaJogador" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="defasaJogador" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="vidaJogador" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel3" min="-2" pref="152" max="-2" attributes="0"/>
-                  <Component id="jLabel6" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
-                  <Component id="jLabel4" alignment="0" min="-2" pref="59" max="-2" attributes="0"/>
-              </Group>
               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="56" max="-2" attributes="0"/>
-              <EmptySpace pref="39" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="qntPot" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" pref="56" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="87" max="32767" attributes="0"/>
               <Component id="preçoReforço" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -195,19 +214,19 @@
         <Property name="opaque" type="boolean" value="true"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="atqJogador">
+    <Component class="javax.swing.JLabel" name="forcaJogador">
       <Properties>
         <Property name="text" type="java.lang.String" value="ATAQUE :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="defesaJogador">
+    <Component class="javax.swing.JLabel" name="intJogador">
       <Properties>
-        <Property name="text" type="java.lang.String" value="DEFESA :"/>
+        <Property name="text" type="java.lang.String" value="INTELIG&#xca;NCIA :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="vidaJogador">
+    <Component class="javax.swing.JLabel" name="destrezaJogador">
       <Properties>
-        <Property name="text" type="java.lang.String" value="VIDA :"/>
+        <Property name="text" type="java.lang.String" value="DESTREZA :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="goldJogador">
@@ -218,6 +237,21 @@
     <Component class="javax.swing.JLabel" name="pre&#xe7;oRefor&#xe7;o">
       <Properties>
         <Property name="text" type="java.lang.String" value="Refor&#xe7;ar Equipamento : "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="defasaJogador">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="DEFESA :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="vidaJogador">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="VIDA :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="qntPot">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="PO&#xc7;&#xc3;O :"/>
       </Properties>
     </Component>
   </SubComponents>

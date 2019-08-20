@@ -2,9 +2,9 @@ package combate;
 
 public class inimigo {
 
-    private int vida = 100;
-    private int força = 100;
-    private int defesa = 100;
+    private int vida = 300;
+    private int força = 3;
+    private int defesa = 20;
 
     public int getVida() {
         return vida;

@@ -9,20 +9,22 @@ import static combate.main.MainFrame;
 import static combate.main.TextosCombate;
 import java.util.Random;
 
-
 public class Combate extends javax.swing.JFrame implements ActionListener {
-    
+
     inimigo inimigo = new inimigo();
     Random dado = new Random();
-    Timer timer = new Timer(50 , this);
-    
+    Timer timer = new Timer(50, this);
+
     int perdaTurno = 0;
+    int perdaTurnoInimigo = 0;
+    int danoAtual = 0;
 
     public Combate() {
         initComponents();
         timer.start();
+        fechar.setVisible(false);
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -56,8 +58,18 @@ public class Combate extends javax.swing.JFrame implements ActionListener {
         });
 
         def.setText("DEFENDER");
+        def.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                defActionPerformed(evt);
+            }
+        });
 
         pot.setText("POÇÃO");
+        pot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                potActionPerformed(evt);
+            }
+        });
 
         barraVida.setBackground(new java.awt.Color(255, 255, 255));
         barraVida.setForeground(new java.awt.Color(204, 0, 0));
@@ -136,13 +148,26 @@ public class Combate extends javax.swing.JFrame implements ActionListener {
 
     private void atqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atqActionPerformed
         int d20 = dado.nextInt(20);
-        
-        if(perdaTurno == 1){
+        danoAtual = d20;
+
+        if (perdaTurno == 1 && perdaTurnoInimigo == 0) {
             atqInimigo();
             perdaTurno = 0;
-        } else if(d20 > 5 && d20 < 16){
-            inimigo.setVida(inimigo.getVida() - 10);
-            if(inimigo.getVida() <= 0){
+
+        } else if (d20 > 5 && d20 < 18) {
+
+            if (Jogador.getClasse() == 1) {
+                inimigo.setVida((inimigo.getVida() - d20) - Jogador.getForca());
+                danoAtual = danoAtual + Jogador.getForca();
+            } else if (Jogador.getClasse() == 2) {
+                inimigo.setVida((inimigo.getVida() - d20) - Jogador.getInteligencia());
+                danoAtual = danoAtual + Jogador.getInteligencia();
+            } else if (Jogador.getClasse() == 3) {
+                inimigo.setVida((inimigo.getVida() - d20) - Jogador.getDestreza());
+                danoAtual = danoAtual + Jogador.getDestreza();
+            }
+
+            if (inimigo.getVida() <= 0) {
                 Jogador.setXp(Jogador.getXp() + 200);
                 MainFrame.setControlCombate(2);
                 timer.stop();
@@ -153,21 +178,26 @@ public class Combate extends javax.swing.JFrame implements ActionListener {
                 textoCombate.setText(TextosCombate.getTextoCombate(6));
                 barraVidaInimigo.setValue(inimigo.getVida());
                 vidaInimigo.setText("VIDA INIMIGO : 0");
+            } else if (Jogador.getClasse() == 1) {
+                textoCombate.setText(TextosCombate.getTextoCombate(0) + danoAtual + " de dano.");
+            } else if (Jogador.getClasse() == 2) {
+                textoCombate.setText(TextosCombate.getTextoCombate(1) + danoAtual + " de dano.");
+            } else if (Jogador.getClasse() == 3) {
+                textoCombate.setText(TextosCombate.getTextoCombate(2) + danoAtual + " de dano.");
             }
-            else if(Jogador.getClasse() == 1){
-                textoCombate.setText(TextosCombate.getTextoCombate(0));
+        } else if (d20 > 17) {
+            if (Jogador.getClasse() == 1) {
+                inimigo.setVida((inimigo.getVida() - d20) - Jogador.getForca() * 2);
+                danoAtual = danoAtual + Jogador.getForca() * 2;
+            } else if (Jogador.getClasse() == 2) {
+                inimigo.setVida((inimigo.getVida() - d20) - Jogador.getInteligencia() * 2);
+                danoAtual = danoAtual + Jogador.getInteligencia() * 2;
+            } else if (Jogador.getClasse() == 3) {
+                inimigo.setVida((inimigo.getVida() - d20) - Jogador.getDestreza() * 2);
+                danoAtual = danoAtual + Jogador.getDestreza() * 2;
             }
-            else if(Jogador.getClasse() == 2){
-                textoCombate.setText(TextosCombate.getTextoCombate(1));
-            }
-            else if(Jogador.getClasse() == 3){
-                textoCombate.setText(TextosCombate.getTextoCombate(2));
-            }
-        }
-        
-        else if(d20 > 15){
-            inimigo.setVida(inimigo.getVida() - 20);
-            if(inimigo.getVida() <= 0){
+
+            if (inimigo.getVida() <= 0) {
                 Jogador.setXp(Jogador.getXp() + 200);
                 MainFrame.setControlCombate(2);
                 timer.stop();
@@ -179,31 +209,61 @@ public class Combate extends javax.swing.JFrame implements ActionListener {
                 barraVidaInimigo.setValue(inimigo.getVida());
                 vidaInimigo.setText("VIDA INIMIGO : 0");
             } else {
-            textoCombate.setText(TextosCombate.getTextoCombate(3));
+                textoCombate.setText(TextosCombate.getTextoCombate(3) + danoAtual + " de dano.");
             }
-        }
-        
-        else if(d20 <= 5 && d20 > 0){
+        } else if (d20 <= 5 && d20 > 0) {
             textoCombate.setText(TextosCombate.getTextoCombate(4));
-        }
-        
-        else if(d20 == 0 ){
+        } else if (d20 == 0) {
             textoCombate.setText(TextosCombate.getTextoCombate(5));
             perdaTurno = 1;
         }
-        atqInimigo();          
+        if(perdaTurnoInimigo > 0){
+            perdaTurnoInimigo--;
+        } else {
+            atqInimigo();
+        }
     }//GEN-LAST:event_atqActionPerformed
 
     private void fecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fecharActionPerformed
         dispose();
     }//GEN-LAST:event_fecharActionPerformed
 
+    private void defActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defActionPerformed
+        int d20 = dado.nextInt(20);
+        int d20Inimigo = dado.nextInt(20);
+        int d20Inimigo2 = dado.nextInt(20);
+        
+        if(d20 > d20Inimigo || d20 > d20Inimigo2){
+            if(d20 > d20Inimigo && d20 > d20Inimigo2){
+                inimigo.setVida(inimigo.getVida() - inimigo.getForça());
+                perdaTurnoInimigo = 2;
+                
+                return;
+            } else {
+                return;
+            }
+        }
+        if(perdaTurnoInimigo > 0){
+            perdaTurnoInimigo--;
+            System.out.println("DEU CERTO");
+        } else { 
+            atqInimigo();
+        }
+    }//GEN-LAST:event_defActionPerformed
+
+    private void potActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_potActionPerformed
+        if(Jogador.getPocao() > 0){
+            Jogador.setVida(Jogador.getMaxVida());
+            Jogador.setPocao(Jogador.getPocao() - 1);
+        }
+        atqInimigo();
+    }//GEN-LAST:event_potActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Combate().setVisible(true);
             }
-            
         });
     }
 
@@ -221,25 +281,45 @@ public class Combate extends javax.swing.JFrame implements ActionListener {
     private javax.swing.JLabel vidaPersonagem;
     // End of variables declaration//GEN-END:variables
 
-      
     @Override
     public void actionPerformed(ActionEvent ae) {
-        
+
         barraVida.setValue(Jogador.getVida() * 2);
-        barraVidaInimigo.setValue(inimigo.getVida());
+        barraVidaInimigo.setValue(inimigo.getVida() / 3);
         vidaInimigo.setText("VIDA INIMIGO : " + inimigo.getVida());
         vidaPersonagem.setText("VIDA : " + Jogador.getVida());
+        if(Jogador.getPocao() == 0){
+            pot.setEnabled(false);
+        }
         
+        
+
     }
-    
-    public void atqInimigo(){
-        if(dado.nextInt(20) > 15){
-            Jogador.setVida(Jogador.getVida() - 1); // AKI FAZ A LOGICA DE TOMAR DANO E MORRER
-            if(Jogador.getVida() <= 0){
-                System.exit(0);
+
+    public void atqInimigo() {
+        int d20inimigo = dado.nextInt(20);
+        float danoDefesa = 0;
+        if (d20inimigo > 0) {
+            if (Jogador.getDestreza() > 0 && Jogador.getDestreza() < 10 && d20inimigo < 6) {
+                //TXT DE DESVIO
+                return;
+            } else if (Jogador.getDestreza() > 9 && Jogador.getDestreza() < 15 && d20inimigo < 11) {
+                //TXT DE DESVIO
+                return;
+            } else if (Jogador.getDestreza() > 14 && Jogador.getDestreza() < 21 && d20inimigo < 15) {
+                //TXT DE DESVIO
+                return;
+            } else {
+                
+                Jogador.setVida(Jogador.getVida() - inimigo.getForça());
+                // AKI TEM Q FAZER A LOGICA DE DEFESA
+
+                if (Jogador.getVida() <= 0) {
+                    System.exit(0);
+                }
+
             }
         }
     }
 
 }
-

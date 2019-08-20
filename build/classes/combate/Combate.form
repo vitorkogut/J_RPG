@@ -124,11 +124,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="DEFENDER"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="defActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="pot">
       <Properties>
         <Property name="text" type="java.lang.String" value="PO&#xc7;&#xc3;O"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="potActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JProgressBar" name="barraVida">
       <Properties>

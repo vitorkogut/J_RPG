@@ -5,11 +5,11 @@ public class TextosCombate {
     
     private String returnTxt;
     
-    private String acertoGue = "Você acerta um golpe de espada retirando 10 de vida.";
-    private String acertoMago = "Você acerta uma Soul Arrow retirando 10 de vida.";
-    private String acertoArq = "Você acerta um disparo retirando 10 de vida.";
+    private String acertoGue = "Você acerta um golpe de espada retirando ";
+    private String acertoMago = "Você acerta uma Soul Arrow retirando ";
+    private String acertoArq = "Você acerta um disparo retirando ";
     
-    private String acertoCritico= "Seu ataque acertou em cheio o inimigo causando dano em dobro.";
+    private String acertoCritico= "Seu ataque acertou em cheio o inimigo causando ";
     
     private String erro = "Seu ataque é falho.";
     private String erroCritico = "Você erra seu ataque e em seguida perde o equilibrio ( -1 round ).";

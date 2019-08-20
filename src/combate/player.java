@@ -5,17 +5,21 @@
  */
 package combate;
 
-/**
- *
- * @author 6462340
- */
 public class player {
-    
+
     int pontosUP = 0;
     private int classe = 0; // CLASSE 1 GUERREIRO / CLASSE 2 MAGO / CLASSE 3 ARQUEIRO
-    private int forca =0;
+    
+    private int forca = 0;
+    private int destreza = 0;
+    private int inteligencia = 0;
+    
+    private int pocao = 2;
+    
     private int defesa = 0;
+    private int maxVida = 10;
     private int vida = 10;
+    
     private int xp = 0;
     private int lvl = 0;
     private int gold = 100;
@@ -34,6 +38,22 @@ public class player {
 
     public void setForca(int forca) {
         this.forca = forca;
+    }
+    
+    public int getDestreza() {
+        return destreza;
+    }
+
+    public void setDestreza(int destreza) {
+        this.destreza = destreza;
+    }
+    
+    public int getInteligencia() {
+        return inteligencia;
+    }
+
+    public void setInteligencia(int inteligencia) {
+        this.inteligencia = inteligencia;
     }
 
     public int getDefesa() {
@@ -82,6 +102,22 @@ public class player {
 
     public void setGold(int gold) {
         this.gold = gold;
+    }
+
+    public int getPocao() {
+        return pocao;
+    }
+
+    public void setPocao(int pocao) {
+        this.pocao = pocao;
+    }
+
+    public int getMaxVida() {
+        return maxVida;
+    }
+
+    public void setMaxVida(int maxida) {
+        this.maxVida = maxida;
     }
    
 }
